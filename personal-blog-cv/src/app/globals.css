@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #111827;
+  background: #f8fafc;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+.container {
+  width: min(900px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.hero {
+  margin-bottom: 48px;
+}
+
+.post-card {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prose {
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-cv
+  namespace: webapps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blog-cv
+  template:
+    metadata:
+      labels:
+        app: blog-cv
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: blog-cv
+          image: your-dockerhub/blog-cv:latest
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-cv-service
+  namespace: webapps
+spec:
+  type: LoadBalancer
+  selector:
+    app: blog-cv
+  ports:
+    - port: 80
+      targetPort: 3000

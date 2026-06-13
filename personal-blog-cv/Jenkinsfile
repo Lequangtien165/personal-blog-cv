@@ -16,45 +16,59 @@ pipeline {
 
     stage("Install Dependencies") {
       steps {
-        sh "npm ci"
+        dir("personal-blog-cv") {
+          sh "npm ci"
+        }
       }
     }
 
     stage("Lint") {
       steps {
-        sh "npm run lint"
+        dir("personal-blog-cv") {
+          sh "npm run lint"
+        }
       }
     }
 
     stage("Typecheck") {
       steps {
-        sh "npm run typecheck"
+        dir("personal-blog-cv") {
+          sh "npm run typecheck"
+        }
       }
     }
 
     stage("Build App") {
       steps {
-        sh "npm run build"
+        dir("personal-blog-cv") {
+          sh "npm run build"
+        }
       }
     }
 
     stage("Trivy FS Scan") {
       steps {
-        sh "trivy fs . --format table -o fs.html"
+        dir("personal-blog-cv") {
+          sh "trivy fs . --format table -o fs.html"
+        }
       }
     }
 
     stage("SonarQube Analysis") {
       steps {
-        withSonarQubeEnv("sonarqubeServer") {
-          sh "$SCANNER_HOME/bin/sonar-scanner"
+        dir("personal-blog-cv") {
+          withSonarQubeEnv("sonarqubeServer") {
+            sh "$SCANNER_HOME/bin/sonar-scanner"
+          }
         }
       }
     }
 
     stage("Docker Build") {
       steps {
-        sh "docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest ."
+        dir("personal-blog-cv") {
+          sh "docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest ."
+        }
       }
     }
 
@@ -94,7 +108,7 @@ pipeline {
 
   post {
     always {
-      archiveArtifacts artifacts: "*.html", allowEmptyArchive: true
+      archiveArtifacts artifacts: "personal-blog-cv/fs.html,image.html", allowEmptyArchive: true
     }
   }
 }

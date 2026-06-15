@@ -1,1 +1,0 @@
-# Hello tên tui là Quang Tiến, đây là post đầu tiên

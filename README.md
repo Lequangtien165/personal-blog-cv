@@ -1,6 +1,6 @@
 # Personal Blog CV CI/CD Lab
 
-Một dự án **full-stack DevOps lab** bao gồm ứng dụng web Next.js (personal blog + CV) và hạ tầng AWS CI/CD hoàn chỉnh được triển khai bằng Infrastructure as Code.
+Mini-project bao gồm ứng dụng Webapp (personal blog + CV) và hạ tầng AWS CI/CD hoàn chỉnh được triển khai bằng Infrastructure as Code.
 
 ---
 
@@ -65,7 +65,7 @@ Một dự án **full-stack DevOps lab** bao gồm ứng dụng web Next.js (per
 ## Cấu trúc repository
 
 ```
-├── personal-blog-cv/          # Ứng dụng Next.js (blog + CV)
+├── personal-blog-cv/          # Webapp (blog + CV)
 │   ├── src/                   # Mã nguồn React/TypeScript
 │   │   ├── app/               # Next.js App Router
 │   │   │   ├── page.tsx       # Trang chủ — danh sách bài viết
@@ -95,7 +95,7 @@ Một dự án **full-stack DevOps lab** bao gồm ứng dụng web Next.js (per
 ├── k8s/                       # Kubernetes manifests
 │   └── deployment-service.yml # Deployment (2 replicas) + Service (LoadBalancer)
 │
-└── README.md                  # Bạn đang đọc đây
+└── README.md                  # Ndung bạn đang đọc
 ```
 
 ---
@@ -108,7 +108,7 @@ Pipeline trong `personal-blog-cv/Jenkinsfile` chia làm 2 phần:
 
 | Stage | Công cụ | Mục đích |
 |---|---|---|
-| 1. Install Dependencies | `npm ci` | Cài đặt exact dependencies từ lockfile |
+| 1. Install Dependencies | `npm ci` | Cài đặt dependencies từ lockfile |
 | 2. Resolve AWS Targets | `aws sts get-caller-identity` | Lấy Account ID, xây dựng ECR URL |
 | 3. Lint | ESLint (`next/core-web-vitals`, `typescript`) | Kiểm tra code style |
 | 4. Typecheck | TypeScript (`tsc --noEmit`) | Kiểm tra kiểu tĩnh |
@@ -142,9 +142,9 @@ Pipeline trong `personal-blog-cv/Jenkinsfile` chia làm 2 phần:
 
 ```markdown
 ---
-title: "Bài viết đầu tiên"
-date: "2026-06-13"
-summary: "Ghi chú đầu tiên trên blog cá nhân."
+title: "Tên title"
+date: "Năm-Tháng-Ngày"
+summary: "Viết cái gì đó..."
 ---
 
 # Nội dung bài viết
@@ -163,7 +163,7 @@ summary: "Ghi chú đầu tiên trên blog cá nhân."
 | Module | Tài nguyên | Chi tiết |
 |---|---|---|
 | `network` | VPC `10.0.0.0/16`, Internet Gateway, 2 public subnets (`10.0.1.0/24`, `10.0.2.0/24`), route table | Hạ tầng mạng cơ bản |
-| `security` | Security group | Cho phép SSH (22) + Jenkins UI (8080) từ IP của bạn |
+| `security` | Security group | Cho phép SSH (22) + Jenkins UI (8080) từ IP máy chủ |
 | `key_pair` | AWS key pair | Import từ public key local |
 | `ec2` | Jenkins EC2 (`t3.small`, 30GB gp3) + user_data script | Tự động cài: Java 21, Docker, Node.js 22, Trivy, Semgrep, AWS CLI, kubectl |
 | `ec2` (optional) | SonarQube EC2, Nexus EC2, Monitoring EC2 | Mặc định `false` để tiết kiệm |
@@ -237,7 +237,7 @@ File `k8s/deployment-service.yml` định nghĩa:
 
 ### Yêu cầu local
 
-- AWS CLI đã cấu hình (`aws configure`)
+- AWS CLI phải cấu hình Access Key (`aws configure`)
 - Terraform ≥ 1.6
 - kubectl
 - SSH client
@@ -269,7 +269,7 @@ Sửa file `terraform.tfvars`:
 ```hcl
 region       = "ap-southeast-1"
 project_name = "blog-cv"
-my_ip_cidr   = "YOUR_PUBLIC_IP/32"   # curl ifconfig.me
+my_ip_cidr   = "IP PUBLIC CỦA BẠN/32"   # curl -4 ifconfig.me
 public_key_path = "~/.ssh/aws-hybrid.pub"
 ```
 
@@ -294,7 +294,7 @@ eks_update_kubeconfig_command
 1. Mở `http://<jenkins_public_ip>:8080`
 2. Lấy mật khẩu admin:
    ```bash
-   ssh -i ~/.ssh/aws-hybrid ubuntu@<jenkins_public_ip>
+   ssh -i ~/.ssh/<tên key> ubuntu@<jenkins_public_ip>
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 3. Cài **suggested plugins**

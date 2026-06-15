@@ -2,9 +2,13 @@ pipeline {
   agent any
 
   environment {
-    IMAGE_NAME = "quangtienngucode/blog-cv"
+    AWS_REGION = "ap-southeast-1"
+    EKS_CLUSTER_NAME = "blog-cv-cluster"
+    K8S_NAMESPACE = "webapps"
+    K8S_DEPLOYMENT = "blog-cv"
+    K8S_CONTAINER = "blog-cv"
+    ECR_REPOSITORY_NAME = "blog-cv-app"
     IMAGE_TAG = "${BUILD_NUMBER}"
-    SCANNER_HOME = tool "sonar-scanner"
   }
 
   stages {
@@ -18,6 +22,15 @@ pipeline {
       steps {
         dir("personal-blog-cv") {
           sh "npm ci"
+        }
+      }
+    }
+
+    stage("Resolve AWS Targets") {
+      steps {
+        script {
+          env.AWS_ACCOUNT_ID = sh(script: "aws sts get-caller-identity --query Account --output text", returnStdout: true).trim()
+          env.ECR_REPOSITORY_URL = "${env.AWS_ACCOUNT_ID}.dkr.ecr.${env.AWS_REGION}.amazonaws.com/${env.ECR_REPOSITORY_NAME}"
         }
       }
     }
@@ -46,20 +59,18 @@ pipeline {
       }
     }
 
-    stage("Trivy FS Scan") {
+    stage("Semgrep Scan") {
       steps {
         dir("personal-blog-cv") {
-          sh "trivy fs . --format table -o fs.html"
+          sh "semgrep scan --config auto --error --json --output semgrep.json || true"
         }
       }
     }
 
-    stage("SonarQube Analysis") {
+    stage("Trivy FS Scan") {
       steps {
         dir("personal-blog-cv") {
-          withSonarQubeEnv("sonarqubeServer") {
-            sh "$SCANNER_HOME/bin/sonar-scanner"
-          }
+          sh "trivy fs . --severity HIGH,CRITICAL --format table -o fs.html"
         }
       }
     }
@@ -67,48 +78,44 @@ pipeline {
     stage("Docker Build") {
       steps {
         dir("personal-blog-cv") {
-          sh "docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest ."
+          sh "docker build -t $ECR_REPOSITORY_URL:$IMAGE_TAG -t $ECR_REPOSITORY_URL:latest ."
         }
       }
     }
 
     stage("Trivy Image Scan") {
       steps {
-        sh "trivy image --format table -o image.html $IMAGE_NAME:$IMAGE_TAG"
+        sh "trivy image --severity HIGH,CRITICAL --format table -o image.html $ECR_REPOSITORY_URL:$IMAGE_TAG"
       }
     }
 
-    stage("Docker Push") {
+    stage("Push Image To ECR") {
       steps {
-        withDockerRegistry(credentialsId: "dockerhub-cred", url: "https://index.docker.io/v1/") {
-          sh "docker push $IMAGE_NAME:$IMAGE_TAG"
-          sh "docker push $IMAGE_NAME:latest"
-        }
+        sh "ECR_REGISTRY=$(echo $ECR_REPOSITORY_URL | cut -d/ -f1) && aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY"
+        sh "docker push $ECR_REPOSITORY_URL:$IMAGE_TAG"
+        sh "docker push $ECR_REPOSITORY_URL:latest"
       }
     }
 
     stage("K8s Deploy") {
       steps {
-        withKubeConfig(credentialsId: "eks-token") {
-          sh "kubectl apply -f k8s/deployment-service.yml"
-          sh "kubectl rollout restart deployment/blog-cv -n webapps"
-        }
+        sh "aws eks --region $AWS_REGION update-kubeconfig --name $EKS_CLUSTER_NAME"
+        sh "kubectl create namespace $K8S_NAMESPACE --dry-run=client -o yaml | kubectl apply -f -"
+        sh "sed \"s|IMAGE_PLACEHOLDER|$ECR_REPOSITORY_URL:$IMAGE_TAG|g\" k8s/deployment-service.yml | kubectl apply -f -"
       }
     }
 
     stage("K8s Verify") {
       steps {
-        withKubeConfig(credentialsId: "eks-token") {
-          sh "kubectl rollout status deployment/blog-cv -n webapps"
-          sh "kubectl get svc -n webapps"
-        }
+        sh "kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE --timeout=180s"
+        sh "kubectl get pods,svc -n $K8S_NAMESPACE"
       }
     }
   }
 
   post {
     always {
-      archiveArtifacts artifacts: "personal-blog-cv/fs.html,image.html", allowEmptyArchive: true
+      archiveArtifacts artifacts: "personal-blog-cv/fs.html,personal-blog-cv/semgrep.json,image.html", allowEmptyArchive: true
     }
   }
 }

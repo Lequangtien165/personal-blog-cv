@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Blog CV App
 
-## Getting Started
+Next.js app for a personal blog and CV. Blog posts and CV content are stored as Markdown files under `content/`.
 
-First, run the development server:
+## Commands
 
 ```bash
+npm ci
+npm run lint
+npm run typecheck
+npm run build
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+docker build -t blog-cv:local .
+```
 
-## Learn More
+Run:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker run --rm -p 3000:3000 blog-cv:local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+http://localhost:3000
+```
 
-## Deploy on Vercel
+## CI/CD
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The `Jenkinsfile` runs:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Install dependencies
+2. Lint
+3. Typecheck
+4. Next.js build
+5. Semgrep scan
+6. Trivy filesystem scan
+7. Docker build
+8. Trivy image scan
+9. Push image to AWS ECR
+10. Deploy to AWS EKS
+
+The Jenkinsfile resolves the full ECR URL automatically from the Jenkins EC2 IAM role and the repository name `blog-cv-app`.

@@ -13,12 +13,10 @@ spec:
       labels:
         app: blog-cv
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
         - name: blog-cv
-          image: quangtienngucode/blog-cv:latest
-          imagePullPolicy: Always
+          image: IMAGE_PLACEHOLDER
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           readinessProbe:

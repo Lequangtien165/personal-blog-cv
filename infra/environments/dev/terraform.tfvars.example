@@ -1,0 +1,32 @@
+region       = "ap-southeast-1"
+project_name = "blog-cv"
+
+# Replace with your public IP, for example "1.2.3.4/32".
+my_ip_cidr = "171.250.165.211/32"
+
+# Linux/Git Bash/macOS example:
+public_key_path = "~/.ssh/aws-hybrid.pub"
+
+
+# Windows PowerShell example:
+# public_key_path = "C:/Users/Qtienle/.ssh/aws-hybrid.pub"
+
+enable_nexus      = false
+enable_sonarqube  = false
+enable_monitoring = false
+
+# Low-cost Jenkins + Trivy + Semgrep + ECR + EKS defaults.
+jenkins_instance_type    = "t3.small"
+sonarqube_instance_type  = "t3.small"
+nexus_instance_type      = "t3.small"
+monitoring_instance_type = "t3.small"
+
+jenkins_volume_size    = 30
+sonarqube_volume_size  = 10
+nexus_volume_size      = 10
+monitoring_volume_size = 20
+
+eks_node_instance_type = "t3.small"
+eks_desired_size       = 1
+eks_min_size           = 1
+eks_max_size           = 1

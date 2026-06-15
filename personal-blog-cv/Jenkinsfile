@@ -12,12 +12,6 @@ pipeline {
   }
 
   stages {
-    stage("Git Checkout") {
-      steps {
-        git branch: "main", url: "https://github.com/quangtienngucode/personal-blog-cv.git"
-      }
-    }
-
     stage("Install Dependencies") {
       steps {
         dir("personal-blog-cv") {
@@ -91,24 +85,27 @@ pipeline {
 
     stage("Push Image To ECR") {
       steps {
-        sh "ECR_REGISTRY=$(echo $ECR_REPOSITORY_URL | cut -d/ -f1) && aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY"
-        sh "docker push $ECR_REPOSITORY_URL:$IMAGE_TAG"
-        sh "docker push $ECR_REPOSITORY_URL:latest"
+        sh '''
+          ECR_REGISTRY=$(echo $ECR_REPOSITORY_URL | cut -d/ -f1)
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+        '''
+        sh 'docker push $ECR_REPOSITORY_URL:$IMAGE_TAG'
+        sh 'docker push $ECR_REPOSITORY_URL:latest'
       }
     }
 
     stage("K8s Deploy") {
       steps {
-        sh "aws eks --region $AWS_REGION update-kubeconfig --name $EKS_CLUSTER_NAME"
-        sh "kubectl create namespace $K8S_NAMESPACE --dry-run=client -o yaml | kubectl apply -f -"
-        sh "sed \"s|IMAGE_PLACEHOLDER|$ECR_REPOSITORY_URL:$IMAGE_TAG|g\" k8s/deployment-service.yml | kubectl apply -f -"
+        sh 'aws eks --region $AWS_REGION update-kubeconfig --name $EKS_CLUSTER_NAME'
+        sh 'kubectl create namespace $K8S_NAMESPACE --dry-run=client -o yaml | kubectl apply -f -'
+        sh 'sed "s|IMAGE_PLACEHOLDER|$ECR_REPOSITORY_URL:$IMAGE_TAG|g" k8s/deployment-service.yml | kubectl apply -f -'
       }
     }
 
     stage("K8s Verify") {
       steps {
-        sh "kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE --timeout=180s"
-        sh "kubectl get pods,svc -n $K8S_NAMESPACE"
+        sh 'kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE --timeout=180s'
+        sh 'kubectl get pods,svc -n $K8S_NAMESPACE'
       }
     }
   }

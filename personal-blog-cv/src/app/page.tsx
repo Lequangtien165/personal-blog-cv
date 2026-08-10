@@ -6,24 +6,55 @@ export default function HomePage() {
 
   return (
     <main className="container">
+      {/* Hero Section */}
       <header className="hero">
-        <h1>Blog & CV</h1>
-        <p>Nơi tôi ghi lại bài viết kỹ thuật và hồ sơ cá nhân.</p>
-        <Link href="/cv">Xem CV</Link>
+        <div className="hero-avatar">QT</div>
+        <div className="hero-content">
+          <h1>Quang Tiến</h1>
+          <p className="subtitle">Computer Networks & Communications Student</p>
+          <p>Nơi lưu trữ các bài viết, dự án, và hồ sơ của mình. Tôi học về cloud infrastructure, DevOps, AI agents, và tất cả những thứ thú vị khác.</p>
+          <div className="hero-actions">
+            <Link href="/cv" className="btn">
+              Xem CV
+            </Link>
+            <a href="#posts" className="btn">
+              Bài viết
+            </a>
+          </div>
+        </div>
       </header>
 
-      <section>
-        <h2>Bài viết</h2>
-        {posts.map((post) => (
-          <article key={post.slug} className="post-card">
-            <Link href={`/blog/${post.slug}`}>
-              <h3>{post.title}</h3>
-            </Link>
-            <time>{post.date}</time>
-            <p>{post.summary}</p>
-          </article>
-        ))}
+      {/* Posts Section */}
+      <section id="posts">
+        <h2 className="section-title">Bài viết gần đây</h2>
+        <div className="posts-container">
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="post-card"
+              >
+                <div className="post-header">
+                  <h3>{post.title}</h3>
+                  <time className="post-meta">{post.date}</time>
+                </div>
+                <p>{post.summary}</p>
+                <span className="post-tag">Bài viết</span>
+              </Link>
+            ))
+          ) : (
+            <p style={{ textAlign: "center", color: "var(--text-secondary)" }}>
+              Chưa có bài viết nào. Quay lại sau!
+            </p>
+          )}
+        </div>
       </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        © 2026 Quang Tiến. All rights reserved.
+      </footer>
     </main>
   );
 }

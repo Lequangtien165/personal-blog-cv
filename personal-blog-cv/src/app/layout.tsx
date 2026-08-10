@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
 
 export const metadata = {
@@ -11,9 +12,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="vi">
       <body>
         <nav className="nav">
-          <Link href="/">Quang Tiến</Link>
-          <Link href="/">Blog</Link>
-          <Link href="/cv">CV</Link>
+          <Link href="/" className="brand-name">Quang Tiến</Link>
+          <div className="nav-links">
+            <Link href="/">Blog</Link>
+            <Link href="/cv">CV</Link>
+          </div>
+          <ThemeToggle />
         </nav>
         {children}
       </body>

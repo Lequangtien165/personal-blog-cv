@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-rubik), "Segoe UI", sans-serif;
   color: var(--text-primary);
   background: var(--bg-body);
   line-height: 1.6;
@@ -105,6 +105,8 @@ img {
   font-size: 15px !important;
   color: var(--text-primary) !important;
   letter-spacing: -0.03em;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
 }
 
 .nav-links {
@@ -189,6 +191,7 @@ img {
   margin-bottom: 10px;
   letter-spacing: -0.07em;
   color: var(--text-primary);
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .hero-content .subtitle {

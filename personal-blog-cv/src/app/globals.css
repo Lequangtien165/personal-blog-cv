@@ -264,68 +264,24 @@ img {
   margin-top: 12px;
 }
 
-.tech-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  transition: transform 0.22s ease, opacity 0.22s ease;
+.techstack-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 20px rgba(15, 23, 42, 0.06);
+  transition: transform 0.22s ease;
 }
 
-.tech-item:hover {
-  transform: translateY(-4px);
+:root[data-theme="dark"] .techstack-img {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.tech-item span {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-}
-
-.tech-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f8fafc;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 12px 18px rgba(15, 23, 42, 0.08);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-}
-
-.tech-item:hover .tech-logo {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 14px 24px rgba(15, 23, 42, 0.12);
-  filter: saturate(1.08);
-}
-
-.tech-logo svg {
-  width: 54%;
-  height: 54%;
-  display: block;
-}
-
-.tech-logo-aws {
-  background: linear-gradient(180deg, #1d66e9 0%, #0f4ec5 100%);
-}
-
-.tech-logo-terraform {
-  background: linear-gradient(180deg, #6d4aff 0%, #4737d4 100%);
-}
-
-.tech-logo-docker {
-  background: linear-gradient(180deg, #1d9bd6 0%, #0f7ec9 100%);
-}
-
-.tech-logo-kubernetes {
-  background: linear-gradient(180deg, #1d4e85 0%, #132f52 100%);
-}
-
-.tech-logo-python {
-  background: linear-gradient(180deg, #2a9bd8 0%, #1d7ab5 100%);
+.techstack-img:hover {
+  transform: translateY(-3px);
 }
 
 .hero-aside {

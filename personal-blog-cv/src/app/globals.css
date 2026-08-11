@@ -10,7 +10,7 @@
   --bg-primary: rgba(255, 255, 255, 0.74);
   --bg-secondary: #edf3f3;
   --bg-tertiary: #dfeef0;
-  --bg-body: linear-gradient(180deg, #1d4f54 0%, #2e6b75 24%, #3c8995 52%, #d89343 100%);
+  --bg-body: linear-gradient(180deg, #f0a43d 0%, #67c2c6 26%, #3a7f8d 54%, #103e49 100%);
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
   --glass: rgba(255, 255, 255, 0.62);
 }

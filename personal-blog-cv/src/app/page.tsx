@@ -87,8 +87,8 @@ export default function HomePage() {
                     loading="lazy"
                     width={48}
                     height={48}
+                    title={item.name}
                   />
-                  <span>{item.name}</span>
                 </div>
               ))}
             </div>

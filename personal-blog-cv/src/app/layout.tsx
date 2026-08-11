@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Quang Tiến - Blog & CV",
+  title: "Quang Tien",
   description: "Blog cá nhân, dự án, và hồ sơ của Quang Tiến",
 };
 

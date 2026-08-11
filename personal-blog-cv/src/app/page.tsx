@@ -100,9 +100,9 @@ export default function HomePage() {
         <div className="hero-main">
           <div className="hero-avatar">QT</div>
           <div className="hero-content">
-            <span className="eyebrow">Portfolio • Blog • CV</span>
-            <h1>Quang Tiến</h1>
-            <p className="subtitle">DevOps Intern</p>
+            <span className="eyebrow">Portfolio • Blog </span>
+            <h1>Quang Tien</h1>
+            <p className="subtitle">DevOps/Cloud enthusiast</p>
             <div className="hero-actions">
               <Link href="/cv" className="btn btn-primary">
                 Xem CV

@@ -1,48 +1,44 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/content";
 
-const featuredProjects = [
+const pinnedProjects = [
   {
-    title: "AIOps-Intelligent-Agent-System",
-    description:
-      "Hệ thống AI agent tự động phát hiện, phân tích và đề xuất hướng xử lý sự cố trong hạ tầng CNTT, kết hợp monitoring, xử lý bất đồng bộ và AI.",
-    tags: ["Python", "AI", "Monitoring", "FastAPI"],
-    href: "https://github.com/Lequangtien165/AIOps-Intelligent-Agent-System",
+    title: "Cloud-Based-AI-Agent-System-for-Network-Incident-Detection-Alerting",
+    description: "Đồ án chuyên ngành Mạng máy tính",
+    language: "Python",
+    stars: 1,
+    href: "https://github.com/Lequangtien165/Cloud-Based-AI-Agent-System-for-Network-Incident-Detection-Alerting",
   },
   {
     title: "eks-platform-infra",
     description:
-      "Xây dựng platform trên AWS để deploy và vận hành ứng dụng mẫu bằng Terraform, EKS, Helm, ArgoCD, Prometheus/Grafana và baseline bảo mật.",
-    tags: ["Terraform", "AWS", "EKS", "Kubernetes"],
+      "Build một platform thu nhỏ trên AWS để deploy và vận hành 1 ứng dụng mẫu bằng Terraform + EKS + Helm + ArgoCD + Prometheus/Grafana + Loki + security baseline",
+    language: "HCL",
+    stars: 0,
     href: "https://github.com/Lequangtien165/eks-platform-infra",
-  },
-  {
-    title: "Deploy-code-on-Docker-Compose-using-Jenkins-on-AWS",
-    description:
-      "Pipeline CI/CD end-to-end từ Docker Compose đến Jenkins và AWS để triển khai có thể mở rộng theo mô hình production.",
-    tags: ["Jenkins", "Docker", "AWS", "CI/CD"],
-    href: "https://github.com/Lequangtien165/Deploy-code-on-Docker-Compose-using-Jenkins-on-AWS",
-  },
-  {
-    title: "personal-blog-cv",
-    description:
-      "Blog cá nhân và CV được xây dựng với Next.js, tối ưu nội dung, trải nghiệm người dùng và workflow triển khai hiện đại.",
-    tags: ["Next.js", "TypeScript", "Portfolio", "Blog"],
-    href: "https://github.com/Lequangtien165/personal-blog-cv",
   },
   {
     title: "Static-Server-Based-Load-Balancing",
     description:
-      "Project nghiên cứu về Load Balancing trên SDN, mô phỏng topology và phân phối lưu lượng trong môi trường mạng lớn hơn.",
-    tags: ["Python", "Networking", "SDN", "Load Balancing"],
+      "Static Server-Based Load Balancing trên SDN (Software-Defined Networking). Nội dung đồ án của môn học NT541",
+    language: "Python",
+    stars: 1,
     href: "https://github.com/Lequangtien165/Static-Server-Based-Load-Balancing",
   },
   {
-    title: "simple-blog",
+    title: "Deploy-code-on-Docker-Compose-using-Jenkins-on-AWS",
     description:
-      "Một blog đơn giản để học và làm quen với tạo nội dung, giao diện web và việc quản lý bài đăng trên nền tảng frontend.",
-    tags: ["HTML", "Blog", "Frontend"],
-    href: "https://github.com/Lequangtien165/simple-blog",
+      "End-to-end CI/CD pipeline leveraging Docker Compose, Jenkins, and AWS for scalable deployments.",
+    language: "Java",
+    stars: 3,
+    href: "https://github.com/Lequangtien165/Deploy-code-on-Docker-Compose-using-Jenkins-on-AWS",
+  },
+  {
+    title: "Deploying-Super-Mario-on-Kubernetes-using-Terraform",
+    description: "funny project",
+    language: "HCL",
+    stars: 0,
+    href: "https://github.com/Lequangtien165/Deploying-Super-Mario-on-Kubernetes-using-Terraform",
   },
 ];
 
@@ -57,12 +53,7 @@ export default function HomePage() {
           <div className="hero-content">
             <span className="eyebrow">Portfolio • Blog • CV</span>
             <h1>Quang Tiến</h1>
-            <p className="subtitle">DevOps & Cloud Infrastructure Intern</p>
-            <p>
-              Tôi là sinh viên chuyên ngành Mạng máy tính, tập trung vào Cloud,
-              DevOps, AI-driven operations và tự động hóa hạ tầng. Mục tiêu của tôi
-              là xây dựng các hệ thống ổn định, an toàn và dễ triển khai.
-            </p>
+            <p className="subtitle">DevOps Intern</p>
             <div className="hero-actions">
               <Link href="/cv" className="btn btn-primary">
                 Xem CV
@@ -104,33 +95,21 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="intro-panel">
-        <div>
-          <p className="panel-eyebrow">About</p>
-          <h3>Tôi xây dựng hệ thống cloud và automation với sự rõ ràng về kiến trúc và mục tiêu.</h3>
-        </div>
-        <p>
-          Tôi quan tâm đến việc thiết kế hạ tầng có thể mở rộng, cấu hình triển khai tự động,
-          giám sát liên tục và tích hợp AI vào quy trình vận hành. Mỗi dự án tôi làm đều cố gắng
-          kết hợp kỹ thuật, hiệu quả và khả năng truyền tải rõ ràng.
-        </p>
-      </section>
-
       <section className="projects-section">
-        <div className="section-heading">
-          <h2 className="section-title">Featured projects</h2>
+        <div className="pinned-header">
+          <h2 className="section-title">Pinned</h2>
           <a
             href="https://github.com/Lequangtien165?tab=repositories"
             target="_blank"
             rel="noreferrer"
             className="section-link"
           >
-            Xem GitHub
+            Customize your pins
           </a>
         </div>
 
         <div className="project-grid">
-          {featuredProjects.map((project) => (
+          {pinnedProjects.map((project) => (
             <a
               key={project.title}
               href={project.href}
@@ -138,18 +117,30 @@ export default function HomePage() {
               rel="noreferrer"
               className="project-card"
             >
-              <div className="project-top">
-                <span className="project-type">GitHub repo</span>
-                <span className="project-link">↗</span>
-              </div>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="project-tag">
-                    {tag}
+              <div className="project-top-row">
+                <div className="project-title-wrap">
+                  <span className="project-icon" aria-hidden="true">
+                    ▣
                   </span>
-                ))}
+                  <span className="project-name">{project.title}</span>
+                </div>
+                <span className="project-menu" aria-hidden="true">
+                  ⋮
+                </span>
+              </div>
+
+              <div className="project-public-row">
+                <span className="project-public">Public</span>
+              </div>
+
+              <p className="project-description">{project.description}</p>
+
+              <div className="project-footer">
+                <span className="project-language">
+                  <span className={`language-dot ${project.language.toLowerCase()}`} aria-hidden="true" />
+                  {project.language}
+                </span>
+                <span className="project-stars">★ {project.stars}</span>
               </div>
             </a>
           ))}

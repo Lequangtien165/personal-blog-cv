@@ -117,20 +117,11 @@ export default function HomePage() {
               rel="noreferrer"
               className="project-card"
             >
-              <div className="project-top-row">
-                <div className="project-title-wrap">
-                  <span className="project-icon" aria-hidden="true">
-                    ▣
-                  </span>
-                  <span className="project-name">{project.title}</span>
-                </div>
-                <span className="project-menu" aria-hidden="true">
-                  ⋮
+              <div className="project-title-wrap">
+                <span className="project-icon" aria-hidden="true">
+                  ▣
                 </span>
-              </div>
-
-              <div className="project-public-row">
-                <span className="project-public">Public</span>
+                <span className="project-name">{project.title}</span>
               </div>
 
               <p className="project-description">{project.description}</p>

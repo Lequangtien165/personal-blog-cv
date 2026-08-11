@@ -42,8 +42,20 @@ const pinnedProjects = [
   },
 ];
 
-const techStackIcons =
-  "aws,docker,kubernetes,terraform,ansible,prometheus,grafana,python,fastapi,jenkins,linux,git";
+const techStack = [
+  { name: "AWS", key: "aws" },
+  { name: "Docker", key: "docker" },
+  { name: "Kubernetes", key: "kubernetes" },
+  { name: "Terraform", key: "terraform" },
+  { name: "Ansible", key: "ansible" },
+  { name: "Prometheus", key: "prometheus" },
+  { name: "Grafana", key: "grafana" },
+  { name: "Python", key: "python" },
+  { name: "FastAPI", key: "fastapi" },
+  { name: "Jenkins", key: "jenkins" },
+  { name: "Linux", key: "linux" },
+  { name: "Git", key: "git" },
+];
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -66,11 +78,19 @@ export default function HomePage() {
               </a>
             </div>
             <div className="techstack-row">
-              <img
-                src={`https://skillicons.dev/icons?i=${techStackIcons}`}
-                alt="Tech stack: AWS, Docker, Kubernetes, Terraform, Ansible, Prometheus, Grafana, Python, FastAPI, Jenkins, Linux, Git"
-                className="techstack-img"
-              />
+              {techStack.map((item) => (
+                <div key={item.key} className="tech-item">
+                  <img
+                    src={`https://skillicons.dev/icons?i=${item.key}&size=48`}
+                    alt={item.name}
+                    className="tech-logo-img"
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                  />
+                  <span>{item.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

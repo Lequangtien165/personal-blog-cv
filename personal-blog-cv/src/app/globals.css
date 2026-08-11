@@ -1,39 +1,35 @@
 :root {
-  --primary: #4f46e5;
-  --primary-strong: #4338ca;
-  --primary-soft: rgba(79, 70, 229, 0.1);
-  --secondary: #d97706;
-  --border: rgba(15, 23, 42, 0.08);
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-tertiary: #6b7280;
-  --bg-primary: rgba(255, 255, 255, 0.8);
-  --bg-secondary: #f8f5f1;
-  --bg-tertiary: #eef2ff;
-  --bg-body: radial-gradient(circle at top left, rgba(99, 102, 241, 0.09), transparent 28%),
-    radial-gradient(circle at top right, rgba(217, 119, 6, 0.08), transparent 24%),
-    linear-gradient(180deg, #f9f7f4 0%, #f3f6fb 100%);
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-  --glass: rgba(255, 255, 255, 0.54);
+  --primary: #2f4f4f;
+  --primary-strong: #1f3b3b;
+  --primary-soft: rgba(47, 79, 79, 0.08);
+  --secondary: #f3a14a;
+  --border: rgba(31, 59, 59, 0.08);
+  --text-primary: #1d2d2d;
+  --text-secondary: #425a5a;
+  --text-tertiary: #687d7d;
+  --bg-primary: rgba(255, 255, 255, 0.82);
+  --bg-secondary: #edf3f3;
+  --bg-tertiary: #dfeef0;
+  --bg-body: linear-gradient(180deg, #f6f1ea 0%, #edf4f4 100%);
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+  --glass: rgba(255, 255, 255, 0.65);
 }
 
 :root[data-theme="dark"] {
-  --primary: #8b9bff;
-  --primary-strong: #7388ff;
-  --primary-soft: rgba(139, 155, 255, 0.14);
-  --secondary: #fbbf24;
-  --border: rgba(148, 163, 184, 0.15);
-  --text-primary: #e5e7eb;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --bg-primary: rgba(15, 23, 42, 0.78);
-  --bg-secondary: #111827;
-  --bg-tertiary: #0f172a;
-  --bg-body: radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.08), transparent 28%),
-    linear-gradient(180deg, #020817 0%, #0f172a 100%);
-  --shadow-soft: 0 22px 50px rgba(2, 6, 23, 0.46);
-  --glass: rgba(15, 23, 42, 0.66);
+  --primary: #5bb6c6;
+  --primary-strong: #7bd3e3;
+  --primary-soft: rgba(91, 182, 198, 0.12);
+  --secondary: #ffb367;
+  --border: rgba(113, 122, 199, 0.18);
+  --text-primary: #edf4ff;
+  --text-secondary: #d5ddf4;
+  --text-tertiary: #aeb8d9;
+  --bg-primary: rgba(15, 18, 39, 0.82);
+  --bg-secondary: #191d3a;
+  --bg-tertiary: #0d1328;
+  --bg-body: linear-gradient(180deg, #120f2d 0%, #1a1c3a 100%);
+  --shadow-soft: 0 22px 50px rgba(7, 10, 22, 0.52);
+  --glass: rgba(21, 24, 46, 0.72);
 }
 
 * {
@@ -140,7 +136,7 @@ img {
   inset: 0 auto auto 0;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.10), transparent 70%);
+  background: radial-gradient(circle, rgba(47, 79, 70, 0.08), transparent 70%);
   pointer-events: none;
 }
 
@@ -240,8 +236,8 @@ img {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
   border-color: transparent;
-  color: white;
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2);
+  color: #f9fafb;
+  box-shadow: 0 12px 24px rgba(47, 79, 70, 0.16);
 }
 
 .btn-secondary {
@@ -606,6 +602,7 @@ img {
 :root[data-theme="dark"] .post-card,
 :root[data-theme="dark"] .btn-secondary {
   background: var(--bg-primary);
+  border-color: var(--border);
 }
 
 :root[data-theme="dark"] .nav a {

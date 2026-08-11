@@ -261,7 +261,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 22px 30px;
+  gap: 14px 18px;
   margin-top: 22px;
 }
 
@@ -279,17 +279,11 @@ img {
   width: 44px;
   height: 44px;
   object-fit: contain;
-  filter: grayscale(1) opacity(0.75);
-  transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-:root[data-theme="dark"] .tech-logo-img {
-  filter: grayscale(1) opacity(0.6);
+  transition: transform 0.25s ease;
 }
 
 .tech-item:hover .tech-logo-img {
   transform: scale(1.12);
-  filter: grayscale(0) opacity(1);
 }
 
 .hero-aside {

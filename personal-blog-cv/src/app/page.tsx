@@ -7,7 +7,7 @@ const pinnedProjects = [
     description: "Đồ án chuyên ngành Mạng máy tính",
     language: "Python",
     stars: 1,
-    href: "https://github.com/Lequangtien165/Cloud-Based-AI-Agent-System-for-Network-Incident-Detection-Alerting",
+    href: "https://github.com/Benjaminnhnn/Cloud-Based-AI-Agent-System-for-Network-Incident-Detection-Alerting",
   },
   {
     title: "eks-platform-infra",

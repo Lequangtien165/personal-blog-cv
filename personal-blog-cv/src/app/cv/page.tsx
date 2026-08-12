@@ -1,6 +1,7 @@
 import { getCvHtml } from "@/lib/content";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "CV",
   description: "CV cá nhân",
 };
@@ -10,7 +11,7 @@ export default async function CvPage() {
 
   return (
     <main className="container">
-      <article className="prose" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="prose post-page" dangerouslySetInnerHTML={{ __html: html }} />
     </main>
   );
 }

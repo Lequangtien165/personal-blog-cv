@@ -164,21 +164,32 @@ export default function HomePage() {
       <section id="posts" className="posts-section">
         <div className="section-heading">
           <h2 className="section-title">Bài viết gần đây</h2>
-          <Link href="/" className="section-link">
+          <Link href="/blog" className="section-link">
             Xem tất cả
           </Link>
         </div>
 
         <div className="posts-container">
           {posts.length > 0 ? (
-            posts.map((post) => (
+            posts.slice(0, 3).map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="post-card">
                 <div className="post-header">
                   <h3>{post.title}</h3>
-                  <time className="post-meta">{post.date}</time>
+                  <time className="post-meta">{post.formattedDate}</time>
                 </div>
                 <p>{post.summary}</p>
-                <span className="post-tag">Bài viết</span>
+                <div className="post-footer">
+                  {post.tags.length > 0 && (
+                    <div className="post-tags">
+                      {post.tags.map((tag) => (
+                        <span key={tag} className="post-tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <span className="post-meta">{post.readingTime}</span>
+                </div>
               </Link>
             ))
           ) : (

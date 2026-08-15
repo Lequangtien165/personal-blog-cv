@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllPosts, getPost } from "@/lib/content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -42,28 +43,36 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(slug);
 
   return (
-    <main className="container">
-      <article className="prose post-page">
-        <Link href="/blog" className="back-link">
-          ← Quay lại blog
-        </Link>
-        <h1>{post.meta.title}</h1>
-        <div className="post-meta-line">
-          <time>{post.meta.formattedDate}</time>
-          <span aria-hidden="true">•</span>
-          <span>{post.meta.readingTime}</span>
-          {post.meta.tags.length > 0 && (
-            <div className="post-tags">
-              {post.meta.tags.map((tag) => (
-                <span key={tag} className="post-tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
-    </main>
+    <>
+      <ScrollProgress />
+      <main className="container" style={{ paddingTop: "40px", paddingBottom: "64px" }}>
+        {/* Glass card = post-page, prose content = inner div */}
+        <article className="post-page">
+          <Link href="/blog" className="back-link">
+            Quay lại blog
+          </Link>
+          <h1>{post.meta.title}</h1>
+          <div className="post-meta-line">
+            <time>{post.meta.formattedDate}</time>
+            <span aria-hidden="true">•</span>
+            <span>{post.meta.readingTime}</span>
+            {post.meta.tags.length > 0 && (
+              <div className="post-tags">
+                {post.meta.tags.map((tag) => (
+                  <span key={tag} className="post-tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Prose content in its own div so .prose styles are scoped correctly */}
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </article>
+      </main>
+    </>
   );
 }

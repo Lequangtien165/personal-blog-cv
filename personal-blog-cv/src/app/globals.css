@@ -257,11 +257,15 @@ body::after {
 
 .file-row {
   display: grid;
-  grid-template-columns: 210px 80px 120px 1fr;
+  grid-template-columns: 280px 80px 100px minmax(0, 1fr);
   gap: 0 12px;
   padding: 3px 0;
   font-size: 13px;
   align-items: start;
+}
+
+.file-row > * {
+  min-width: 0;
 }
 
 .file-row.hdr {
@@ -280,6 +284,9 @@ body::after {
   font-size: inherit;
   text-align: left;
   padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .file-name:hover {

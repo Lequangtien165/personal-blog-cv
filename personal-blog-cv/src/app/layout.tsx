@@ -1,42 +1,35 @@
-import Link from "next/link";
-import { NavLinks } from "@/components/nav-links";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Montserrat, Rubik } from "next/font/google";
-import Script from "next/script";
+import { Geist_Mono } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const rubik = Rubik({
+const geistMono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-rubik",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-montserrat",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Quang Tiến",
-    template: "%s · Quang Tiến",
+    default: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    template: "%s · Lê Quang Tiến",
   },
-  description: "Blog cá nhân, dự án, và hồ sơ của Quang Tiến — DevOps & Cloud Engineer",
-  authors: [{ name: "Quang Tiến" }],
+  description:
+    "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
+  authors: [{ name: "Lê Quang Tiến" }],
   metadataBase: new URL("https://quangtien.id.vn"),
   openGraph: {
-    title: "Quang Tiến",
-    description: "Blog cá nhân, dự án, và hồ sơ của Quang Tiến",
+    title: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    description:
+      "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
     type: "website",
     locale: "vi_VN",
-    siteName: "Quang Tiến",
+    siteName: "QT-OS // Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quang Tiến",
-    description: "Blog cá nhân, dự án, và hồ sơ của Quang Tiến",
+    title: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    description:
+      "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -46,28 +39,17 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafe" },
-    { media: "(prefers-color-scheme: dark)", color: "#060b18" },
-  ],
+  themeColor: "#0f1210",
 };
 
-const themeScript = `(function(){try{var s=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",s==="light"?"light":s==="dark"?"dark":d?"dark":"light")}catch(e){}})();`;
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="vi" className={`${rubik.variable} ${montserrat.variable}`} suppressHydrationWarning>
-      <head>
-        <Script id="theme-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body>
-        <nav className="nav">
-          <Link href="/" className="brand-name">Quang Tiến</Link>
-          <NavLinks />
-          <ThemeToggle />
-        </nav>
-        {children}
-      </body>
+    <html lang="vi" className={geistMono.variable}>
+      <body>{children}</body>
     </html>
   );
 }

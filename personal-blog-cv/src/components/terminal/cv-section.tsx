@@ -8,44 +8,69 @@ export function CvSection() {
         <div className="cs-section-title">// experience</div>
 
         <div className="exp-block">
-          <div className="exp-company">
-            Cloud-Based AI Agent Network Incident Detection
-          </div>
+          <div className="exp-company">DTP Education Solutions</div>
           <div className="exp-meta">
-            <span className="exp-dates">2025 -- 2026</span>
-            <span className="exp-role">DevOps / AI Engineer</span>
+            <span className="exp-dates">Jul 2026 -- Sep 2026</span>
+            <span className="exp-role">System Administrator Intern</span>
           </div>
           <div className="exp-bullet">
-            Hệ thống AI Agent tự động phát hiện, phân loại và cảnh báo sự cố
-            mạng trên môi trường Cloud trong thời gian thực
+            Practiced Linux and Windows server administration in a VMware ESXi
+            environment, including VM provisioning, snapshots, backup, and
+            recovery procedures.
           </div>
           <div className="exp-bullet">
-            Tích hợp OpenAI GPT-4 API và LangChain để phân tích logs, dự đoán
-            sự cố trước khi hệ thống ngưng hoạt động
+            Supported system and network troubleshooting with connectivity
+            tests, service checks, logs, DNS checks, metrics, alerts, firewall
+            rules, routers, switches, and end devices.
           </div>
           <div className="exp-bullet">
-            Giảm thời gian MTTR (Mean Time to Resolution) lên đến 60%
+            Practiced monitoring with Grafana, Windows Exporter, Linux Exporter,
+            Node Exporter, and Bash scripts.
           </div>
         </div>
 
         <div className="exp-block">
           <div className="exp-company">
-            Production-ready EKS Platform Infrastructure
+            Cloud-Based AI Agent Network Incident Detection
           </div>
           <div className="exp-meta">
-            <span className="exp-dates">2025 -- 2026</span>
-            <span className="exp-role">Cloud Platform Engineer</span>
+            <span className="exp-dates">Jan 2026 -- Jun 2026</span>
+            <span className="exp-role">DevOps / Cloud Engineer / AI Engineer</span>
           </div>
           <div className="exp-bullet">
-            Nền tảng hạ tầng Kubernetes hoàn chỉnh trên AWS sử dụng Terraform +
-            EKS + Helm + ArgoCD GitOps
+            Provisioned AWS infrastructure with Terraform and automated Linux
+            server bootstrap with Ansible.
           </div>
           <div className="exp-bullet">
-            Hệ thống Observability toàn diện với Prometheus metrics & Grafana
-            dashboards
+            Built an alert workflow where Prometheus and Blackbox Exporter
+            detected failures, Alertmanager triggered webhooks, and Telegram
+            received operational notifications.
           </div>
           <div className="exp-bullet">
-            Tự động co giãn cụm (Cluster Autoscaler & Horizontal Pod Autoscaler)
+            Developed asynchronous incident analysis with FastAPI, Gemini, RAG,
+            Celery, and Redis.
+          </div>
+        </div>
+
+        <div className="exp-block">
+          <div className="exp-company">
+            EKS GitOps Platform on AWS
+          </div>
+          <div className="exp-meta">
+            <span className="exp-dates">Jul 2026 -- Present</span>
+            <span className="exp-role">DevOps / Cloud Engineer</span>
+          </div>
+          <div className="exp-bullet">
+            Provisioned an AWS EKS platform with Terraform, including VPC,
+            subnets, NAT Gateway, IAM roles, ECR, and managed node groups.
+          </div>
+          <div className="exp-bullet">
+            Built GitOps deployment workflow with Argo CD and Helm for separate
+            development and production Kubernetes environments.
+          </div>
+          <div className="exp-bullet">
+            Added GitHub Actions pipelines with tests, container image builds,
+            Trivy scans, and Amazon ECR publishing.
           </div>
         </div>
 
@@ -54,15 +79,16 @@ export function CvSection() {
             End-to-End CI/CD Pipeline on AWS with Jenkins & Docker
           </div>
           <div className="exp-meta">
-            <span className="exp-dates">2025</span>
-            <span className="exp-role">DevOps Engineer</span>
+            <span className="exp-dates">2026</span>
+            <span className="exp-role">DevOps Lab</span>
           </div>
           <div className="exp-bullet">
-            Quy trình tự động hóa triển khai khép kín kết hợp Docker Compose,
-            Jenkins server và AWS EC2
+            Built a Java web application with Maven on a Jenkins EC2 server and
+            transferred the WAR artifact to a separate Docker host.
           </div>
           <div className="exp-bullet">
-            Triển khai không gián đoạn (Zero-downtime) lên AWS EC2 qua SSH
+            Automated container replacement through Publish Over SSH, Docker,
+            Tomcat, and a Jenkins build triggered by source polling.
           </div>
         </div>
 
@@ -72,30 +98,36 @@ export function CvSection() {
             University of Information Technology (UIT), VNU-HCM
           </div>
           <div className="exp-meta">
-            <span className="exp-dates">2021 -- 2026</span>
+            <span className="exp-dates">Expected Jul 2027</span>
             <span className="exp-role">
               B.Eng. Computer Networks & Data Communication
             </span>
           </div>
           <div className="exp-bullet">
-            Certified: AWS Cloud Practitioner (CLF-C02) · IELTS 6.5
+            GPA 8.5/10 · IELTS Academic 6.5
+          </div>
+          <div className="exp-bullet">
+            Certified: AWS Cloud Practitioner (CLF-C02) · Google System
+            Administration and IT Infrastructure Services
           </div>
         </div>
 
         <div className="cs-section-title">// skills</div>
         <div className="skills-grid">
           <span className="skill-cat">CLOUD</span>
-          <span>AWS · EC2 · EKS · ECR · IAM · VPC</span>
+          <span>AWS · EC2 · EKS · ECR · IAM · VPC · NAT Gateway</span>
           <span className="skill-cat">ORCH</span>
-          <span>Kubernetes · Helm · Argo CD</span>
+          <span>Docker · Docker Compose · Kubernetes · Helm · ingress-nginx</span>
           <span className="skill-cat">AUTOMATION</span>
-          <span>Terraform · Ansible · GitHub Actions · Jenkins</span>
+          <span>Terraform · Ansible · GitHub Actions · Argo CD · Jenkins</span>
           <span className="skill-cat">OBSERVE</span>
-          <span>Prometheus · Grafana · Alertmanager</span>
+          <span>Prometheus · Grafana · Alertmanager · Blackbox Exporter</span>
           <span className="skill-cat">AI OPS</span>
           <span>FastAPI · Gemini · RAG · Celery · Redis</span>
           <span className="skill-cat">SYSTEMS</span>
-          <span>Linux · Networking · Docker · Bash · Python</span>
+          <span>Linux · Windows Server · VMware ESXi · Bash · Python</span>
+          <span className="skill-cat">NETWORK</span>
+          <span>TCP/IP · DNS · routing · firewalls · security groups</span>
           <span className="skill-cat">LANGUAGES</span>
           <span>Vietnamese (native) · English (IELTS 6.5)</span>
         </div>

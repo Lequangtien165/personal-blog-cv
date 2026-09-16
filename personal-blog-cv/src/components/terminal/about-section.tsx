@@ -12,29 +12,37 @@ export function AboutSection() {
           <span style={{ color: "var(--accent)" }}>
             University of Information Technology (UIT), VNU-HCM
           </span>
-          , pursuing a DevOps / Cloud Infrastructure career.
+          , pursuing DevOps, Cloud Infrastructure, and Platform Engineering
+          intern or junior roles.
         </p>
         <p>
-          Hands-on practice across the full DevOps lifecycle — from
-          infrastructure provisioning and application deployment to monitoring,
-          alerting, health checks, and rollback. Solid foundation in Computer
-          Networks: TCP/IP, routing, load balancing and software-defined
-          networking, applied directly to how I design cloud systems.
+          My strongest work is practical: AWS infrastructure with Terraform,
+          server bootstrap with Ansible, Docker/Kubernetes deployments,
+          GitHub Actions pipelines, health checks, rollback, and observability
+          with Prometheus, Grafana, Alertmanager, Blackbox Exporter, and Node
+          Exporter.
         </p>
         <p>
-          Day-to-day toolkit:{" "}
+          My System Administrator internship added practical exposure to VMware
+          ESXi, VM provisioning, snapshots, backup and recovery procedures,
+          service checks, DNS/connectivity troubleshooting, firewall rules, and
+          monitoring exporters across Linux and Windows servers.
+        </p>
+        <p>
+          Current toolkit:{" "}
           <span style={{ color: "var(--fg)", fontWeight: 500 }}>
-            AWS, Kubernetes, Terraform, CI/CD, Prometheus/Grafana
+            AWS, EKS, Terraform, Kubernetes, GitHub Actions, Argo CD,
+            Prometheus/Grafana
           </span>{" "}
-          monitoring and{" "}
-          <span style={{ color: "var(--fg)", fontWeight: 500 }}>AI-Ops</span> —
-          building AI agents that detect and analyze infrastructure incidents
-          before they become outages.
+          and{" "}
+          <span style={{ color: "var(--fg)", fontWeight: 500 }}>
+            AI-assisted incident analysis
+          </span>
+          .
         </p>
         <p>
-          I build reliable cloud infrastructure, automate delivery, and explore
-          AI-assisted operations. When I am not configuring pipelines, I am
-          writing about DevOps workflows and cloud-native patterns.
+          This site documents what I built, how I validated it, and which parts
+          were project work, internship practice, or operational evidence.
         </p>
       </div>
       <div className="section-gap dimtext" style={{ fontSize: "12px" }}>

@@ -27,14 +27,15 @@ export function HeroSection() {
         </span>
         .
         <br />
-        Hands-on across the full DevOps lifecycle — infrastructure provisioning,
-        deployment, monitoring, and AI-Ops.
+        Hands-on with AWS infrastructure, Terraform, CI/CD, GitOps,
+        observability, and Linux/Windows server operations.
         <br />
         Currently building{" "}
         <span style={{ color: "var(--accent)" }}>
-          cloud-native infrastructure
+          cloud infrastructure projects
         </span>{" "}
-        and AI agents for incident detection.
+        with Terraform, Kubernetes, Prometheus, Grafana, and AI-assisted
+        incident analysis.
       </div>
 
       <div className="section-gap">

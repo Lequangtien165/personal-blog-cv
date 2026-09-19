@@ -1,24 +1,33 @@
 ---
-title: "Tôi đang xây blog này như một DevOps portfolio"
+title: "Từ những dòng lệnh đầu tiên đến hành trình DevOps của tôi"
 date: "2026-06-13"
-summary: "Ghi lại cách tôi biến CV, GitHub và các lab Cloud/DevOps thành bằng chứng portfolio rõ ràng hơn."
+summary: "Vì sao tôi xây portfolio này và cách tôi biến từng project, lần triển khai và sự cố thành kinh nghiệm có thể kiểm chứng."
 tags:
   - DevOps
   - Cloud
 ---
 
-# Tôi đang xây blog này như một DevOps portfolio
+Mình là Lê Quang Tiến, sinh viên ngành Mạng máy tính tại UIT, VNU-HCM. Mình bắt đầu với những câu hỏi rất cơ bản: một dịch vụ chạy như thế nào, vì sao hệ thống mất kết nối, log đang nói điều gì và làm sao để biết bản sửa lỗi thực sự có hiệu quả. Càng tìm hiểu, mình càng hứng thú với DevOps, Cloud Infrastructure và Platform Engineering — nơi mỗi dòng cấu hình đều gắn với cách một hệ thống được xây dựng, vận hành và phục hồi.
 
-Mình là Lê Quang Tiến, sinh viên Computer Networks tại UIT, VNU-HCM, đang theo hướng DevOps, Cloud Infrastructure và Platform Engineering. Blog này không chỉ là nơi giới thiệu bản thân, mà là một phần của portfolio: mỗi bài viết nên trả lời được mình đã xây gì, kiểm chứng ra sao, và phần nào thật sự do mình thực hiện.
+## Vì sao mình xây website này?
 
-Hiện tại trọng tâm của mình là AWS, Terraform, Kubernetes/EKS, GitHub Actions, Argo CD, Prometheus/Grafana, Alertmanager, Ansible và AI-assisted incident analysis. Các dự án chính gồm hệ thống AIOps trên AWS, nền tảng EKS GitOps, bài lab cân bằng tải SDN với Ryu/Mininet và quy trình build-deploy Java bằng Jenkins, Maven, Docker trên EC2.
+Một bản CV có thể liệt kê AWS, Terraform, Kubernetes hay Prometheus, nhưng những cái tên đó chưa cho thấy mình đã sử dụng chúng để giải quyết vấn đề gì. Vì vậy, mình xây website này như một cuốn nhật ký kỹ thuật: nơi mỗi project không chỉ có kết quả cuối cùng mà còn có kiến trúc, cách triển khai, bước kiểm chứng, lỗi đã gặp và bài học rút ra.
 
-Mục tiêu của website này là đối chiếu thẳng với CV và GitHub: CV nói về kỹ năng nào thì website phải có dự án hoặc ghi chú kỹ thuật đi kèm; GitHub có repo nào thì nội dung blog phải giải thích được kiến trúc, pipeline, health check, rollback, monitoring hoặc bài học vận hành phía sau.
+## Mình đang xây dựng những gì?
 
-Một thay đổi nhỏ nhưng quan trọng: mình sẽ ưu tiên cách viết có bằng chứng hơn là khẩu hiệu. Thay vì nói “production-ready” một cách chung chung, mình sẽ mô tả cụ thể các phần như Terraform provision, image build, Trivy scan, deploy lên EKS/EC2, Prometheus alert, Telegram notification, và rollback khi health check thất bại.
+Hành trình hiện tại của mình xoay quanh hạ tầng AWS, Infrastructure as Code, CI/CD, GitOps và observability. Mình đã thực hành provision hạ tầng bằng Terraform, cấu hình máy chủ với Ansible, triển khai workload trên EC2 và EKS, xây pipeline với GitHub Actions và Jenkins, đồng thời theo dõi hệ thống bằng Prometheus, Grafana và Alertmanager.
 
-```bash
-npm ci
-npm run typecheck
-npm run build
-```
+Các project trên portfolio ghi lại từng phần của hành trình đó: từ hệ thống phát hiện sự cố có AI hỗ trợ, nền tảng EKS vận hành theo GitOps, pipeline build–deploy Java trên AWS, đến bài lab cân bằng tải SDN bằng Ryu và Mininet. Mỗi project giúp mình hiểu thêm không chỉ cách làm cho hệ thống **chạy được**, mà còn cách kiểm tra, quan sát và xử lý khi nó **không chạy như mong đợi**.
+
+## Mình sẽ viết như thế nào?
+
+Mình không muốn dùng những cụm từ lớn như “production-ready” nếu chưa có đủ bằng chứng. Thay vào đó, mỗi bài viết sẽ cố gắng trả lời bốn câu hỏi:
+
+1. Vấn đề cần giải quyết là gì?
+2. Mình đã thiết kế và triển khai giải pháp như thế nào?
+3. Mình kiểm chứng kết quả bằng log, metric, health check hoặc test ra sao?
+4. Nếu làm lại, mình sẽ cải thiện điều gì?
+
+Website này vì thế không phải nơi trưng bày một hành trình đã hoàn tất. Đây là nơi mình ghi lại quá trình học, xây dựng, làm sai, sửa lại và tiến bộ từng bước. Nếu một bài viết có thể giúp người đọc hiểu rõ hơn về một công cụ, tránh được một lỗi mình từng gặp, hoặc nhìn thấy cách mình tiếp cận vấn đề, thì bài viết đó đã hoàn thành mục tiêu của nó.
+
+Đây là điểm bắt đầu. Những bài tiếp theo sẽ đi sâu hơn vào từng project, từng quyết định kỹ thuật và những bài học thực tế phía sau chúng.

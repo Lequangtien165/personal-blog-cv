@@ -12,7 +12,14 @@ interface SubpageShellProps {
  */
 export function SubpageShell({ module, children }: SubpageShellProps) {
   return (
-    <div style={{ minHeight: "100svh", background: "var(--bg)", overflow: "auto" }}>
+    <div
+      style={{
+        minHeight: "100svh",
+        background: "var(--bg)",
+        overflowY: "auto",
+        overflowX: "hidden",
+      }}
+    >
       <div className="subpage-topbar">
         <Link
           href="/"

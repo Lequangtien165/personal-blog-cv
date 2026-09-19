@@ -5,7 +5,7 @@ export function CvSection() {
         <span className="cmd-prompt">$</span> cat resume.txt
       </div>
       <div className="cs-body section-gap">
-        <div className="cs-section-title">// experience</div>
+        <div className="cs-section-title">// work experience</div>
 
         <div className="exp-block">
           <div className="exp-company">DTP Education Solutions</div>
@@ -28,6 +28,8 @@ export function CvSection() {
             Node Exporter, and Bash scripts.
           </div>
         </div>
+
+        <div className="cs-section-title">// projects</div>
 
         <div className="exp-block">
           <div className="exp-company">

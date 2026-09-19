@@ -1,7 +1,7 @@
 ---
-title: "The Phoenix Project #3: Từ chữa cháy đến tạo flow"
+title: "The Phoenix Project #3: Làm ít việc cùng lúc để đi nhanh hơn"
 date: "2026-09-18"
-summary: "Parts Unlimited bắt đầu thoát khỏi hỗn loạn khi giới hạn WIP, bảo vệ constraint và đưa feedback vào toàn bộ dòng chảy Dev-Ops-Security."
+summary: "Parts Unlimited bắt đầu thoát khỏi hỗn loạn khi chọn ít việc hơn, giảm thời gian chờ và để các nhóm cùng chịu trách nhiệm."
 tags:
   - DevOps
   - Book Notes

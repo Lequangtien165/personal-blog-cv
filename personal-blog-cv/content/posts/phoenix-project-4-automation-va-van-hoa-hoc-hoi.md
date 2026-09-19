@@ -1,7 +1,7 @@
 ---
-title: "The Phoenix Project #4: Automation chưa đủ, DevOps còn là văn hóa học hỏi"
+title: "The Phoenix Project #4: DevOps là cách cùng nhau học và tiến bộ"
 date: "2026-09-19"
-summary: "Small batches, deployment automation và telemetry chỉ phát huy giá trị khi tổ chức biết thử nghiệm, học từ thất bại và cải tiến liên tục."
+summary: "Công cụ chỉ tạo ra giá trị khi con người biết quan sát kết quả, học từ sai lầm và cùng nhau cải tiến mỗi ngày."
 tags:
   - DevOps
   - Book Notes

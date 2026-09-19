@@ -1,7 +1,7 @@
 ---
-title: "The Phoenix Project #2: Brent không phải siêu nhân, Brent là bottleneck"
+title: "The Phoenix Project #2: Người giỏi nhất không nên là người duy nhất"
 date: "2026-09-17"
-summary: "Một cá nhân giỏi có thể cứu hệ thống trong ngắn hạn nhưng cũng trở thành điểm nghẽn khiến toàn bộ tổ chức không thể tiến nhanh hơn."
+summary: "Khi mọi việc quan trọng đều phụ thuộc vào một người, người hùng của đội cũng có thể trở thành rủi ro lớn nhất."
 tags:
   - DevOps
   - Book Notes

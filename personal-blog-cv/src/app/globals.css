@@ -293,6 +293,39 @@ body::after {
   text-decoration: underline;
 }
 
+.journal-row {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.journal-title {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1.45;
+}
+
+.journal-row:hover .journal-title,
+.journal-row:focus-visible .journal-title {
+  text-decoration: underline;
+}
+
+.journal-summary {
+  display: block;
+  min-width: 0;
+}
+
+.journal-read-link {
+  display: block;
+  width: fit-content;
+  margin-top: 6px;
+  color: var(--accent);
+  font-size: 11px;
+}
+
 .file-size,
 .file-date {
   color: var(--dim);

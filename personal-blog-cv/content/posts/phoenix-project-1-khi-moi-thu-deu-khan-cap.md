@@ -1,7 +1,7 @@
 ---
-title: "The Phoenix Project #1: Khi mọi thứ đều khẩn cấp"
+title: "The Phoenix Project #1: Khi một ngày làm việc biến thành khủng hoảng"
 date: "2026-09-16"
-summary: "Bill tiếp quản một hệ thống đang hỗn loạn và nhận ra rằng vấn đề đầu tiên của IT không phải thiếu công cụ, mà là không nhìn thấy công việc."
+summary: "Bill bước vào ngày đầu ở vị trí mới và phải đối mặt với sự cố, áp lực cùng hàng loạt công việc không ai nhìn thấy hết."
 tags:
   - DevOps
   - Book Notes

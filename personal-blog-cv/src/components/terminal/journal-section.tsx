@@ -20,26 +20,29 @@ export function JournalSection({ posts }: JournalSectionProps) {
 
       <div className="file-table">
         <div className="file-row hdr">
-          <span>NAME</span>
+          <span>TITLE</span>
           <span>SIZE</span>
           <span>DATE</span>
           <span>SUMMARY</span>
         </div>
 
         {posts.map((post) => (
-          <Link
+          <a
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="file-row"
-            style={{ textDecoration: "none", color: "inherit" }}
+            className="file-row journal-row"
+            aria-label={`Đọc bài: ${post.title}`}
           >
-            <span className="file-name" style={{ cursor: "pointer" }}>
-              {post.slug}.md
+            <span className="file-name journal-title">
+              {post.title}
             </span>
             <span className="file-size">{post.readingTime}</span>
             <span className="file-date">{post.date}</span>
-            <span className="dimtext">{post.summary}</span>
-          </Link>
+            <span className="journal-summary">
+              <span className="dimtext">{post.summary}</span>
+              <span className="journal-read-link">[ĐỌC BÀI]</span>
+            </span>
+          </a>
         ))}
       </div>
 

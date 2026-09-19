@@ -14,7 +14,7 @@ export function SubpageShell({ module, children }: SubpageShellProps) {
   return (
     <div
       style={{
-        minHeight: "100svh",
+        height: "100svh",
         background: "var(--bg)",
         overflowY: "auto",
         overflowX: "hidden",

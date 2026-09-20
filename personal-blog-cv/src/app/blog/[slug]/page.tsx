@@ -57,13 +57,12 @@ export default async function BlogPostPage({ params }: Props) {
         ← back /journal/
       </Link>
 
-      <article style={{ marginTop: "24px" }}>
+      <article className="blog-post" style={{ marginTop: "24px" }}>
         <h1
+          className="blog-post-title"
           style={{
-            fontSize: "28px",
             fontWeight: 500,
             color: "var(--fg)",
-            lineHeight: 1.2,
             marginBottom: "4px",
           }}
         >
@@ -71,6 +70,7 @@ export default async function BlogPostPage({ params }: Props) {
         </h1>
 
         <div
+          className="blog-post-meta"
           style={{
             marginTop: "12px",
             marginBottom: "24px",
@@ -78,7 +78,6 @@ export default async function BlogPostPage({ params }: Props) {
             flexWrap: "wrap",
             alignItems: "center",
             gap: "8px",
-            fontSize: "11px",
             letterSpacing: "0.05em",
             color: "var(--dim)",
             borderBottom: "1px solid var(--border)",
@@ -91,7 +90,10 @@ export default async function BlogPostPage({ params }: Props) {
           <span aria-hidden="true">·</span>
           <span>{post.meta.readingTime}</span>
           {post.meta.tags.length > 0 && (
-            <span style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+            <span
+              className="blog-post-tags"
+              style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}
+            >
               {post.meta.tags.map((tag) => (
                 <span
                   key={tag}

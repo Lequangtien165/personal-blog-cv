@@ -23,6 +23,7 @@ export function SubpageShell({ module, children }: SubpageShellProps) {
       <div className="subpage-topbar">
         <Link
           href="/"
+          className="subpage-brand"
           style={{
             fontSize: "12px",
             fontWeight: "bold",
@@ -37,6 +38,7 @@ export function SubpageShell({ module, children }: SubpageShellProps) {
         </Link>
 
         <nav
+          className="subpage-nav"
           aria-label="Secondary"
           style={{
             display: "flex",

@@ -27,8 +27,8 @@ export const projects: ProjectItem[] = [
     title: "Cloud-Based AI Agent Network Incident Detection",
     subtitle: "AWS Monitoring, Alert Routing & AI-Assisted Analysis",
     description:
-      "Cloud operations project that provisions AWS infrastructure with Terraform, configures Linux services with Ansible, detects failures with Prometheus/Blackbox Exporter, and routes alerts to an AI-assisted incident analysis service.",
-    type: "AI & Cloud Ops Automation",
+      "Infrastructure operations project covering AWS and Linux server provisioning, configuration automation, service monitoring, alerting, and AI-assisted incident analysis.",
+    type: "Infrastructure Monitoring & Incident Response",
     role: "DevOps / Cloud Engineer / AI Engineer",
     year: "2026",
     status: "SHIPPED",
@@ -56,14 +56,14 @@ export const projects: ProjectItem[] = [
     title: "EKS GitOps Platform on AWS",
     subtitle: "Terraform, Helm, Argo CD & Container Delivery",
     description:
-      "AWS EKS platform project focused on infrastructure as code, GitOps deployment, container image delivery, security scanning, and Kubernetes ingress automation.",
+      "AWS infrastructure project focused on provisioning and operating an EKS platform, automating configuration and delivery, and monitoring Kubernetes workloads.",
     type: "Cloud Infrastructure as Code",
     role: "DevOps / Cloud Engineer",
     year: "2026",
     status: "ACTIVE",
     size: "38.2kb",
     tools: "AWS EKS, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions",
-    skills: "IaC, GitOps, Kubernetes Environments, Image Scanning",
+    skills: "Cloud Infrastructure, Linux Automation, Kubernetes Operations, Monitoring",
     concept: "GitOps Cloud Platform",
     liveLink: "https://github.com/Lequangtien165/eks-platform-infra",
     features: [

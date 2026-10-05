@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "CV",
-  description: "CV & Resume của Lê Quang Tiến — DevOps / Cloud Engineer",
+  description: "CV của Lê Quang Tiến — System Engineer, IT operations, Linux, Windows Server và VMware ESXi",
 };
 
 export default async function CvPage() {

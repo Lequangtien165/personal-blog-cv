@@ -27,15 +27,16 @@ export function HeroSection() {
         </span>
         .
         <br />
-        Hands-on with AWS infrastructure, Terraform, CI/CD, GitOps,
-        observability, and Linux/Windows server operations.
+        Seeking System Engineer opportunities, with hands-on experience in
+        Linux and Windows server operations, VMware ESXi, monitoring, and
+        infrastructure troubleshooting.
         <br />
         Currently building{" "}
         <span style={{ color: "var(--accent)" }}>
-          cloud infrastructure projects
+          infrastructure projects
         </span>{" "}
-        with Terraform, Kubernetes, Prometheus, Grafana, and AI-assisted
-        incident analysis.
+        with AWS, Terraform, Ansible, Docker, Kubernetes, Prometheus, and
+        Grafana.
       </div>
 
       <div className="section-gap">

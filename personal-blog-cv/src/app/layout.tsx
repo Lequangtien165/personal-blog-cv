@@ -10,26 +10,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    default: "Lê Quang Tiến — System Engineer",
     template: "%s · Lê Quang Tiến",
   },
   description:
-    "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
+    "QT-OS — System Engineer portfolio of Lê Quang Tiến in Ho Chi Minh City, focused on Linux and Windows operations, VMware ESXi, monitoring, troubleshooting, and infrastructure automation.",
   authors: [{ name: "Lê Quang Tiến" }],
   metadataBase: new URL("https://quangtien.id.vn"),
   openGraph: {
-    title: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    title: "Lê Quang Tiến — System Engineer",
     description:
-      "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
+      "QT-OS — System Engineer portfolio of Lê Quang Tiến in Ho Chi Minh City, focused on Linux and Windows operations, VMware ESXi, monitoring, troubleshooting, and infrastructure automation.",
     type: "website",
     locale: "vi_VN",
     siteName: "QT-OS // Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lê Quang Tiến — DevOps & Cloud Infrastructure Engineer",
+    title: "Lê Quang Tiến — System Engineer",
     description:
-      "QT-OS — Interactive terminal portfolio of Lê Quang Tiến, DevOps & Cloud Infrastructure Engineer in Ho Chi Minh City. AWS, Kubernetes, Terraform, CI/CD, GitOps, Observability & AI-Ops.",
+      "QT-OS — System Engineer portfolio of Lê Quang Tiến in Ho Chi Minh City, focused on Linux and Windows operations, VMware ESXi, monitoring, troubleshooting, and infrastructure automation.",
   },
   icons: {
     icon: "/favicon.ico",

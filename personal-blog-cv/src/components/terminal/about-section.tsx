@@ -12,26 +12,24 @@ export function AboutSection() {
           <span style={{ color: "var(--accent)" }}>
             University of Information Technology (UIT), VNU-HCM
           </span>
-          , pursuing DevOps, Cloud Infrastructure, and Platform Engineering
-          intern or junior roles.
+          , targeting System Engineer intern or junior roles focused on
+          reliable infrastructure operations.
         </p>
         <p>
-          My strongest work is practical: AWS infrastructure with Terraform,
-          server bootstrap with Ansible, Docker/Kubernetes deployments,
-          GitHub Actions pipelines, health checks, rollback, and observability
-          with Prometheus, Grafana, Alertmanager, Blackbox Exporter, and Node
-          Exporter.
+          During my System Administrator internship, I supported Linux and
+          Windows server operations in VMware ESXi, including VM provisioning,
+          snapshots, backup and recovery procedures, monitoring, and
+          troubleshooting.
         </p>
         <p>
-          My System Administrator internship added practical exposure to VMware
-          ESXi, VM provisioning, snapshots, backup and recovery procedures,
-          service checks, DNS/connectivity troubleshooting, firewall rules, and
-          monitoring exporters across Linux and Windows servers.
+          My projects extend that foundation with AWS infrastructure, Terraform
+          and Ansible automation, container platforms, network services, and
+          monitoring with Prometheus, Grafana, and Alertmanager.
         </p>
         <p>
           Current toolkit:{" "}
           <span style={{ color: "var(--fg)", fontWeight: 500 }}>
-            AWS, EKS, Terraform, Kubernetes, GitHub Actions, Argo CD,
+            Linux, Windows Server, VMware ESXi, Bash, Ansible, AWS, Terraform,
             Prometheus/Grafana
           </span>{" "}
           and{" "}
@@ -42,7 +40,7 @@ export function AboutSection() {
         </p>
         <p>
           This site documents what I built, how I validated it, and which parts
-          were project work, internship practice, or operational evidence.
+          came from internship operations or independent project work.
         </p>
       </div>
       <div className="section-gap dimtext" style={{ fontSize: "12px" }}>

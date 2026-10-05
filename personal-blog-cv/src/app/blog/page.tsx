@@ -6,7 +6,7 @@ import { SubpageShell } from "@/components/terminal/subpage-shell";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Chia sẻ chuyên sâu về DevOps, Cloud Architecture, Kubernetes và tự động hóa hệ thống — QT-OS journal.",
+    "Ghi chép về vận hành hệ thống, Linux, hạ tầng cloud, monitoring, troubleshooting và automation — QT-OS journal.",
 };
 
 export default function BlogPage() {
@@ -36,7 +36,7 @@ export default function BlogPage() {
           marginBottom: "20px",
         }}
       >
-        Notes on building reliable systems — markdown, no fluff.
+        Notes on system operations, infrastructure, and practical troubleshooting.
       </p>
 
       {posts.length > 0 ? (

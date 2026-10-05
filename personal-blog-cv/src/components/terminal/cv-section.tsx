@@ -14,18 +14,21 @@ export function CvSection() {
             <span className="exp-role">System Administrator Intern</span>
           </div>
           <div className="exp-bullet">
-            Practiced Linux and Windows server administration in a VMware ESXi
-            environment, including VM provisioning, snapshots, backup, and
+            Supported Linux and Windows server administration in a VMware ESXi
+            environment, including VM provisioning, resource allocation,
+            snapshots, backup, and
             recovery procedures.
           </div>
           <div className="exp-bullet">
-            Supported system and network troubleshooting with connectivity
-            tests, service checks, logs, DNS checks, metrics, alerts, firewall
-            rules, routers, switches, and end devices.
+            Assisted in diagnosing system and network issues through
+            connectivity tests, DNS checks, service status verification,
+            system logs, firewall rules, and network device inspection.
           </div>
           <div className="exp-bullet">
-            Practiced monitoring with Grafana, Windows Exporter, Linux Exporter,
-            Node Exporter, and Bash scripts.
+            Used Bash scripts for routine operational checks and monitored
+            system health and resource utilization with Grafana, Windows
+            Exporter, Linux Exporter, and Node Exporter. Documented
+            troubleshooting and recovery procedures.
           </div>
         </div>
 
@@ -116,20 +119,20 @@ export function CvSection() {
 
         <div className="cs-section-title">// skills</div>
         <div className="skills-grid">
-          <span className="skill-cat">CLOUD</span>
-          <span>AWS · EC2 · EKS · ECR · IAM · VPC · NAT Gateway</span>
-          <span className="skill-cat">ORCH</span>
-          <span>Docker · Docker Compose · Kubernetes · Helm · ingress-nginx</span>
+          <span className="skill-cat">SYSTEMS</span>
+          <span>Linux (Ubuntu) · Windows Server · VMware ESXi · Bash · Python</span>
+          <span className="skill-cat">NETWORK</span>
+          <span>TCP/IP · DNS · DHCP · routing · firewalls · connectivity troubleshooting</span>
+          <span className="skill-cat">OPERATIONS</span>
+          <span>Monitoring · health checks · logs · backup and recovery · documentation</span>
           <span className="skill-cat">AUTOMATION</span>
           <span>Terraform · Ansible · GitHub Actions · Argo CD · Jenkins</span>
-          <span className="skill-cat">OBSERVE</span>
-          <span>Prometheus · Grafana · Alertmanager · Blackbox Exporter</span>
-          <span className="skill-cat">AI OPS</span>
-          <span>FastAPI · Gemini · RAG · Celery · Redis</span>
-          <span className="skill-cat">SYSTEMS</span>
-          <span>Linux · Windows Server · VMware ESXi · Bash · Python</span>
-          <span className="skill-cat">NETWORK</span>
-          <span>TCP/IP · DNS · routing · firewalls · security groups</span>
+          <span className="skill-cat">CLOUD</span>
+          <span>AWS · EC2 · EKS · ECR · IAM · VPC · NAT Gateway</span>
+          <span className="skill-cat">CONTAINERS</span>
+          <span>Docker · Docker Compose · Kubernetes · Helm · Argo CD</span>
+          <span className="skill-cat">MONITORING</span>
+          <span>Prometheus · Grafana · Alertmanager · Windows/Linux/Node Exporter</span>
           <span className="skill-cat">LANGUAGES</span>
           <span>Vietnamese (native) · English (IELTS 6.5)</span>
         </div>

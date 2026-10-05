@@ -1,23 +1,23 @@
 ---
-title: "Từ những dòng lệnh đầu tiên đến hành trình DevOps của tôi"
+title: "Từ những dòng lệnh đầu tiên đến hành trình System Engineer"
 date: "2026-06-13"
-summary: "Vì sao tôi xây portfolio này và cách tôi biến từng project, lần triển khai và sự cố thành kinh nghiệm có thể kiểm chứng."
+summary: "Vì sao tôi xây portfolio này và cách tôi ghi lại kinh nghiệm vận hành hệ thống, hạ tầng và troubleshooting qua từng project."
 tags:
-  - DevOps
+  - System Engineer
   - Cloud
 ---
 
-Mình là Lê Quang Tiến, sinh viên ngành Mạng máy tính tại UIT, VNU-HCM. Mình bắt đầu với những câu hỏi rất cơ bản: một dịch vụ chạy như thế nào, vì sao hệ thống mất kết nối, log đang nói điều gì và làm sao để biết bản sửa lỗi thực sự có hiệu quả. Càng tìm hiểu, mình càng hứng thú với DevOps, Cloud Infrastructure và Platform Engineering — nơi mỗi dòng cấu hình đều gắn với cách một hệ thống được xây dựng, vận hành và phục hồi.
+Mình là Lê Quang Tiến, sinh viên ngành Mạng máy tính tại UIT, VNU-HCM và đang hướng đến công việc System Engineer. Mình bắt đầu với những câu hỏi rất cơ bản: một dịch vụ chạy như thế nào, vì sao hệ thống mất kết nối, log đang nói điều gì và làm sao để biết bản sửa lỗi thực sự có hiệu quả. Những câu hỏi đó dẫn mình đến quản trị Linux và Windows Server, ảo hóa VMware, monitoring và troubleshooting; sau đó mở rộng sang tự động hóa và hạ tầng cloud.
 
 ## Vì sao mình xây website này?
 
-Một bản CV có thể liệt kê AWS, Terraform, Kubernetes hay Prometheus, nhưng những cái tên đó chưa cho thấy mình đã sử dụng chúng để giải quyết vấn đề gì. Vì vậy, mình xây website này như một cuốn nhật ký kỹ thuật: nơi mỗi project không chỉ có kết quả cuối cùng mà còn có kiến trúc, cách triển khai, bước kiểm chứng, lỗi đã gặp và bài học rút ra.
+Một bản CV có thể liệt kê Linux, VMware, AWS hay Prometheus, nhưng những cái tên đó chưa cho thấy mình đã dùng chúng để giải quyết vấn đề gì. Vì vậy, mình xây website này như một cuốn nhật ký kỹ thuật: nơi mỗi project không chỉ có kết quả cuối cùng mà còn có cách cấu hình, bước kiểm chứng, lỗi đã gặp và bài học rút ra.
 
 ## Mình đang xây dựng những gì?
 
-Hành trình hiện tại của mình xoay quanh hạ tầng AWS, Infrastructure as Code, CI/CD, GitOps và observability. Mình đã thực hành provision hạ tầng bằng Terraform, cấu hình máy chủ với Ansible, triển khai workload trên EC2 và EKS, xây pipeline với GitHub Actions và Jenkins, đồng thời theo dõi hệ thống bằng Prometheus, Grafana và Alertmanager.
+Trọng tâm của mình là vận hành và khắc phục sự cố hệ thống: quản trị Linux và Windows Server, theo dõi tình trạng dịch vụ, kiểm tra log và kết nối, cũng như hỗ trợ backup và recovery. Các project cloud và container giúp mình bổ sung kinh nghiệm về Terraform, Ansible, Docker, Kubernetes và monitoring.
 
-Các project trên portfolio ghi lại từng phần của hành trình đó: từ hệ thống phát hiện sự cố có AI hỗ trợ, nền tảng EKS vận hành theo GitOps, pipeline build–deploy Java trên AWS, đến bài lab cân bằng tải SDN bằng Ryu và Mininet. Mỗi project giúp mình hiểu thêm không chỉ cách làm cho hệ thống **chạy được**, mà còn cách kiểm tra, quan sát và xử lý khi nó **không chạy như mong đợi**.
+Các project trên portfolio ghi lại từng phần của hành trình đó: từ hệ thống monitoring và cảnh báo, nền tảng EKS trên AWS, pipeline triển khai Java, đến bài lab cân bằng tải SDN bằng Ryu và Mininet. Mỗi project giúp mình hiểu thêm không chỉ cách làm cho hệ thống **chạy được**, mà còn cách kiểm tra, quan sát và xử lý khi nó **không chạy như mong đợi**.
 
 ## Mình sẽ viết như thế nào?
 

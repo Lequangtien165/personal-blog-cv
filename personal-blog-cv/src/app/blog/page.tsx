@@ -1,83 +1,53 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/content";
-import { SubpageShell } from "@/components/terminal/subpage-shell";
+import { PageShell } from "@/components/site/page-shell";
 
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Ghi chép về vận hành hệ thống, Linux, hạ tầng cloud, monitoring, troubleshooting và automation — QT-OS journal.",
+    "Ghi chép về vận hành hệ thống, Linux, hạ tầng cloud, monitoring, troubleshooting và automation.",
 };
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <SubpageShell module="JOURNAL">
-      <div style={{ marginBottom: "12px" }}>
-        <span style={{ color: "var(--accent)" }}>$</span> ls -la /journal/
+    <PageShell active="journal">
+      <div className="page-head">
+        <h1 className="display">
+          Journal<span className="dot-accent">.</span>
+        </h1>
+        <p className="lede">
+          Notes on system operations, infrastructure, and practical
+          troubleshooting.
+        </p>
       </div>
 
-      <h1
-        style={{
-          fontSize: "28px",
-          fontWeight: 500,
-          color: "var(--fg)",
-          lineHeight: 1,
-          marginBottom: "4px",
-        }}
-      >
-        Journal
-      </h1>
-      <p
-        style={{
-          fontSize: "13px",
-          color: "var(--dim)",
-          marginBottom: "20px",
-        }}
-      >
-        Notes on system operations, infrastructure, and practical troubleshooting.
-      </p>
-
+      <p className="label">{posts.length} entries</p>
       {posts.length > 0 ? (
-        <div className="file-table">
-          <div className="file-row hdr">
-            <span>TITLE</span>
-            <span>SIZE</span>
-            <span>DATE</span>
-            <span>SUMMARY</span>
-          </div>
-
+        <ul className="rows">
           {posts.map((post) => (
-            <a
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="file-row journal-row"
-              aria-label={`Đọc bài: ${post.title}`}
-            >
-              <span className="file-name journal-title">{post.title}</span>
-              <span className="file-size">{post.readingTime}</span>
-              <span className="file-date">{post.date}</span>
-              <span className="journal-summary">
-                <span className="dimtext">{post.summary}</span>
-                <span className="journal-read-link">[ĐỌC BÀI]</span>
-              </span>
-            </a>
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`} className="row row-link">
+                <span className="row-meta">{post.date}</span>
+                <span className="row-main">
+                  <span className="row-title">{post.title}</span>
+                  <span className="row-sub">{post.summary}</span>
+                </span>
+                <span className="row-aside">
+                  {post.readingTime}
+                  <span className="row-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       ) : (
-        <p style={{ fontSize: "13px", color: "var(--dim)" }}>
-          No entries found. Check back later.
-        </p>
+        <p className="lede">No entries yet. Check back later.</p>
       )}
-
-      <Link
-        href="/"
-        className="open-btn"
-        style={{ marginTop: "16px", textDecoration: "none" }}
-      >
-        $ cd ../ [BACK]
-      </Link>
-    </SubpageShell>
+    </PageShell>
   );
 }

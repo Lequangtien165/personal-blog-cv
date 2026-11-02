@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/content";
-import { TerminalPortfolio } from "@/components/terminal/terminal-portfolio";
+import { HomePage } from "@/components/site/home-page";
 
-export default function HomePage() {
+export default function Page() {
   const posts = getAllPosts();
-  return <TerminalPortfolio posts={posts} />;
+  return <HomePage posts={posts} />;
 }

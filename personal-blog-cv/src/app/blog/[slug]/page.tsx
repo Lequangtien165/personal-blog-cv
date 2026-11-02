@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getAllPosts, getPost } from "@/lib/content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { SubpageShell } from "@/components/terminal/subpage-shell";
+import { PageShell } from "@/components/site/page-shell";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -43,67 +43,22 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(slug);
 
   return (
-    <SubpageShell module={`BLOG/${post.meta.slug}`}>
-      <div style={{ marginBottom: "12px" }}>
-        <span style={{ color: "var(--accent)" }}>$</span> cat
-        /journal/{post.meta.slug}.md
-      </div>
+    <PageShell active="journal">
+      <article className="post">
+        <Link href="/blog" className="arrow-link back-link">
+          ← Journal
+        </Link>
 
-      <Link
-        href="/blog"
-        className="open-btn"
-        style={{ textDecoration: "none", marginBottom: "16px" }}
-      >
-        ← back /journal/
-      </Link>
+        <h1 className="post-title">{post.meta.title}</h1>
 
-      <article className="blog-post" style={{ marginTop: "24px" }}>
-        <h1
-          className="blog-post-title"
-          style={{
-            fontWeight: 500,
-            color: "var(--fg)",
-            marginBottom: "4px",
-          }}
-        >
-          {post.meta.title}
-        </h1>
-
-        <div
-          className="blog-post-meta"
-          style={{
-            marginTop: "12px",
-            marginBottom: "24px",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "8px",
-            letterSpacing: "0.05em",
-            color: "var(--dim)",
-            borderBottom: "1px solid var(--border)",
-            paddingBottom: "12px",
-          }}
-        >
-          <time style={{ fontVariantNumeric: "tabular-nums" }}>
-            {post.meta.date}
-          </time>
+        <div className="post-meta">
+          <time>{post.meta.date}</time>
           <span aria-hidden="true">·</span>
           <span>{post.meta.readingTime}</span>
           {post.meta.tags.length > 0 && (
-            <span
-              className="blog-post-tags"
-              style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}
-            >
+            <span className="post-tags">
               {post.meta.tags.map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    border: "1px solid var(--border)",
-                    padding: "2px 6px",
-                    fontSize: "9px",
-                    color: "var(--dim)",
-                  }}
-                >
+                <span key={tag} className="tag">
                   {tag}
                 </span>
               ))}
@@ -115,7 +70,13 @@ export default async function BlogPostPage({ params }: Props) {
           className="prose"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        <div className="post-end">
+          <Link href="/blog" className="btn">
+            ← All entries
+          </Link>
+        </div>
       </article>
-    </SubpageShell>
+    </PageShell>
   );
 }

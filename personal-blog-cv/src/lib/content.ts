@@ -10,7 +10,6 @@ import rehypeStringify from "rehype-stringify";
 import { visit } from "unist-util-visit";
 
 const postsDir = path.join(process.cwd(), "content", "posts");
-const cvPath = path.join(process.cwd(), "content", "cv.md");
 
 export type PostMeta = {
   slug: string;
@@ -108,7 +107,3 @@ export async function getPost(slug: string) {
   };
 }
 
-export async function getCvHtml() {
-  const raw = fs.readFileSync(cvPath, "utf8");
-  return markdownToHtml(raw, { demote: false });
-}

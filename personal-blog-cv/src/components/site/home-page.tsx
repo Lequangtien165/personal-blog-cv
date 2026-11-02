@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { PostMeta } from "@/lib/content";
 import { getProjectById, projects } from "@/lib/projects";
 import { site } from "@/lib/site";
+import { certificates, education, experience } from "@/lib/resume";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { RevealObserver } from "@/components/site/reveal-observer";
@@ -42,19 +43,17 @@ const PRINCIPLES = [
   { word: "Document", note: "Runbooks & recovery steps" },
 ];
 
-const EXPERIENCE = [
-  {
-    dates: "Jul 2026 — Sep 2026",
-    title: "System Administrator Intern",
-    org: "DTP Education Solutions",
-    text: "Linux and Windows server administration on VMware ESXi: VM provisioning, snapshots, backup and recovery, monitoring with Grafana and exporters, and network troubleshooting.",
-  },
-  {
-    dates: "Expected Jul 2027",
-    title: "B.Eng. Computer Networks & Data Communication",
-    org: "UIT, VNU-HCM",
-    text: "GPA 8.5/10 · IELTS Academic 6.5 · AWS Cloud Practitioner (CLF-C02) · Google System Administration and IT Infrastructure Services.",
-  },
+const RESUME_ROWS = [
+  ...experience.map((e) => ({ kind: "Experience", ...e })),
+  ...education.map((e) => ({ kind: "Education", ...e })),
+  ...certificates.map((c) => ({ kind: "Certificate", ...c, bullets: [] })),
+];
+
+const STATS = [
+  { value: "8.5", unit: "/10", label: "GPA at UIT" },
+  { value: "6.5", unit: "", label: "IELTS Academic" },
+  { value: String(projects.length).padStart(2, "0"), unit: "", label: "Infra projects" },
+  { value: String(certificates.length).padStart(2, "0"), unit: "", label: "Certificates" },
 ];
 
 function tagsOf(tools: string) {
@@ -233,15 +232,30 @@ export function HomePage({ posts }: { posts: PostMeta[] }) {
               Full CV ↗
             </Link>
           </div>
+          <ul className="stats" data-reveal>
+            {STATS.map((s) => (
+              <li key={s.label}>
+                <span className="stat-value">
+                  {s.value}
+                  {s.unit && <span className="stat-unit">{s.unit}</span>}
+                </span>
+                <span className="stat-label">{s.label}</span>
+              </li>
+            ))}
+          </ul>
           <ul className="rows">
-            {EXPERIENCE.map((e) => (
+            {RESUME_ROWS.map((e) => (
               <li key={e.title} className="row" data-reveal>
-                <span className="row-meta">{e.dates}</span>
+                <span className="row-meta">
+                  {e.kind}
+                  <br />
+                  {e.dates}
+                </span>
                 <span className="row-main">
                   <span className="row-title">{e.title}</span>
                   <span className="row-sub">{e.org}</span>
                 </span>
-                <span className="row-text">{e.text}</span>
+                {e.bullets[0] && <span className="row-text">{e.bullets[0]}</span>}
               </li>
             ))}
           </ul>
